@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'securerandom'
 
 RSpec.describe Post, type: :model do
-  author = User.create(name: 'John Doe', photo: 'https://jhon-doe-picture', bio: 'This is John Doe bio',
+  author = User.create(name: 'John Doen', photo: 'https://jhon-doe-picture', bio: 'This is John Doe bio',
                        posts_counter: 0)
 
   subject { Post.new(author:, title: 'Post title', text: 'Post content', likes_counter: 0, comments_counter: 0) }
