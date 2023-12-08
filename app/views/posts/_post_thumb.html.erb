@@ -1,0 +1,8 @@
+<div class="post-box">
+    <h3><%= link_to post.title, user_post_path(post.author, post) %><h3>
+    <p><%= post.text %></p>
+    <div class="post-stats">
+        <span>Comments: <%= post.comments.count %></span>
+        <span>Likes: <%= post.likes.count %></span>
+    </div>
+</div>
