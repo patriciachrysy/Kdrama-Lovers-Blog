@@ -2,7 +2,7 @@
     <div class="user-box">
         <%= image_tag @user.photo %>
         <div class="user-infos">
-            <h2><%= @user.name %><h2>
+            <h2><%= @user.name %></h2>
             <span>Number of posts: <%= @user.posts.count %></span>
         </div>
     </div>
@@ -10,7 +10,7 @@
         <%= render "post_thumb", post: post %>
         <div class="comment-peek">
             <% post.recent_comments.each do |comment| %>
-                <%= render "comment_thumb", comment: comment %>
+                <%= render "comment_thumb", {comment: comment.truncated_comment, commenter: comment.user.name} %>
             <% end %>
         </div>
     <% end %>

@@ -14,53 +14,109 @@
  *= require_self
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&display=swap');
+
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Crafty Girls', cursive;
 }
 
-h2 {
-    margin: 5px 0;
+h2,
+h3,
+h4,
+h5,
+h2 a,
+h3 a {
+  margin: 5px 0;
+  color: rgb(166, 35, 81);
 }
 
 .users-container {
-    padding: 10px 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 10px;
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
 }
 
 .user-box {
-    width: 35%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
 }
 
 .user-box a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
 }
 
 .user-box > img {
-    width: 77px;
-    height: 77px;
-    border: 1px solid black;
+  width: 85px;
+  height: 85px;
+  border: 5px solid rgb(166, 35, 81);
+  border-radius: 10px;
 }
 
-.user-box > div {
-    padding: 10px;
-    width: 100%;
-    flex-grow: 3;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
+.user-box > div,
+.single-post-box {
+  padding: 10px;
+  width: 100%;
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
+.post-stats > span,
 .user-box > div > span {
-    align-self: flex-end;
+  align-self: flex-end;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.bio-box,
+.post-box,
+.comment-peek {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.post-stats {
+  align-self: end;
+  display: flex;
+  gap: 10px;
+}
+
+.comment-peek .comment-content span {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.comment-peek .comment-content span:first-child {
+  font-size: 15px;
+  color: rgb(166, 35, 81);
+}
+
+.single-post-box {
+  padding: 10px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.single-post-box .post-header {
+  display: flex;
+  justify-content: space-between;
 }

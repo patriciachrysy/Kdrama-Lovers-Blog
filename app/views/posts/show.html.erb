@@ -1,17 +1,17 @@
 <div class="users-container">
     <div class="single-post-box">
         <div class="post-header">
-            <h3><%= @post.title %> by <%= @post.author.name %><h3>
+            <h3><%= @post.title %> by <%= @post.author.name %></h3>
             <div class="post-stats">
-                <small>Comments: <%= @post.comments.count %>,</small>
-                <small>Likes: <%= @post.likes.count %></small>
+                <span>Comments: <%= @post.comments.count %>,</span>
+                <span>Likes: <%= @post.likes.count %></span>
             </div>
         </div>
         <p><%= @post.text %></p>
     </div>
     <div class="comment-peek">
         <% @post.comments.each do |comment| %>
-            <%= render "comment_thumb", comment: comment %>
-        <% end %>
+            <%= render "comment_thumb", {comment: comment.text, commenter: comment.user.name} %>
+            <% end %>
     </div>
 </div>
