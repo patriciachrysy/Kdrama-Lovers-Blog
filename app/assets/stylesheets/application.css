@@ -120,3 +120,70 @@ h3 a {
   display: flex;
   justify-content: space-between;
 }
+
+.post-form,
+.comment-form {
+  padding: 10px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.post-form label {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.post-form input[type=text],
+.post-form textarea,
+.comment-form textarea {
+  width: 95%;
+  font-family: 'Crafty Girls', cursive;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.post-form input[type=submit] {
+  font-family: 'Crafty Girls', cursive;
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: rgb(166, 35, 81);
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.comment-form input[type=submit],
+.like-button {
+  text-decoration: none;
+  font-family: 'Crafty Girls', cursive;
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: rgb(166, 35, 81);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 13px;
+  width: max-content;
+}
+
+.post-form textarea:focus {
+  border: 3px solid rgb(166, 35, 81) !important;
+  outline: none;
+}
+
+.comment-form textarea:focus {
+  border: 3px solid rgb(166, 35, 81) !important;
+  outline: none;
+}
+
+.post-form input[type=text]:focus {
+  border: 3px solid rgb(166, 35, 81) !important;
+  outline: none;
+}

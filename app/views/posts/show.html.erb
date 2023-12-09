@@ -8,6 +8,18 @@
             </div>
         </div>
         <p><%= @post.text %></p>
+        <%= link_to "like", user_post_likes_path(@post.author, @post), class: 'like-button' %>
+    </div>
+    <div class="comment-form">
+        <h4>Add a comment:</h4>
+        <%= form_with model: [@post.author, @post, @comment ] do |form| %>
+        <p>
+            <%= form.text_area :text, rows: 2 %>
+        </p>
+        <p>
+            <%= form.submit %>
+        </p>
+        <% end %>
     </div>
     <div class="comment-peek">
         <% @post.comments.each do |comment| %>

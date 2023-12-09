@@ -1,11 +1,6 @@
 <div class="users-container">
+    <%= link_to "New Post", new_post_path, class: 'like-button' %>
     <% @users.each do |user| %>
-        <div class="user-box">
-            <%= image_tag user.photo %>
-            <div class="user-infos">
-                <h2><%= link_to user.name, user %></h2>
-                <span>Number of posts: <%= user.posts.count %></span>
-            </div>
-        </div>
+        <%= render 'user_thumb', user: user %>
     <% end %>
 </div>
