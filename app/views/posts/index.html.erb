@@ -1,1 +1,18 @@
-<h1>Here is a list of posts for a given user</h1>
+<div class="users-container">
+    <div class="user-box">
+        <%= image_tag @user.photo %>
+        <div class="user-infos">
+            <h2><%= @user.name %></h2>
+            <span>Number of posts: <%= @user.posts.count %></span>
+        </div>
+    </div>
+    <% @user.posts.each_with_index do |post, i| %>
+        <%= render "post_thumb", post: post %>
+        <div class="comment-peek">
+            <% post.recent_comments.each do |comment| %>
+                <%= render "comment_thumb", {comment: comment.truncated_comment, commenter: comment.user.name} %>
+            <% end %>
+        </div>
+    <% end %>
+    <%= button_to "Pagination" %>
+</div>
