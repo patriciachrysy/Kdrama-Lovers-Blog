@@ -2,10 +2,13 @@ require 'rails_helper'
 require 'securerandom'
 
 RSpec.describe Post, type: :model do
-  author = User.create(name: 'John Doen', photo: 'https://jhon-doe-picture', bio: 'This is John Doe bio',
-                       posts_counter: 0)
-
-  subject { Post.new(author:, title: 'Post title', text: 'Post content', likes_counter: 0, comments_counter: 0) }
+  let(:author) { User.create(name: 'John Doe', photo: 'https://jhon-doe-picture', bio: 'This is John Doe bio', posts_counter: 0) }
+  let(:post) do
+    Post.create(author:, title: 'Post title', text: 'Post content', likes_counter: 0, comments_counter: 0)
+  end
+  subject do
+    described_class.new(author:, title: 'Post title', text: 'Post content', likes_counter: 0, comments_counter: 0)
+  end
 
   describe '#validators' do
     before { subject.save }
@@ -51,9 +54,9 @@ RSpec.describe Post, type: :model do
       expect(subject.recent_comments).to_not include(first_comment)
     end
 
-    it 'Should update the posts conter of user upon saving the post' do
-      subject.save
-
+    it 'Should update the posts counter of user upon saving the post' do
+      post
+      author.reload
       expect(author.posts_counter).to eq(1)
     end
   end

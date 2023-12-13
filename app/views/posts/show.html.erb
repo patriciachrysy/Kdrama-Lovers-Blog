@@ -23,7 +23,7 @@
     </div>
     <div class="comment-peek">
         <% @post.comments.each do |comment| %>
-            <%= render "comment_thumb", {comment: comment.text, commenter: comment.user.name} %>
-            <% end %>
+            <%= render "comment_thumb", comment: comment %>
+        <% end %>
     </div>
 </div>
