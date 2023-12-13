@@ -32,6 +32,21 @@ h3 a {
   color: rgb(166, 35, 81);
 }
 
+.flash {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.notice {
+  background-color: #d3f5b8;
+  color: #145214;
+}
+
+.alert {
+  background-color: #ffcccb;
+  color: #8b0000;
+}
+
 .users-container {
   padding: 10px 0;
   width: 100%;
@@ -40,6 +55,13 @@ h3 a {
   justify-content: space-around;
   align-items: center;
   gap: 10px;
+}
+
+.users-container .action-buttons {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-box {
@@ -54,7 +76,8 @@ h3 a {
   text-decoration: none;
 }
 
-.user-box > img {
+.user-box > img,
+.photo-view > img {
   width: 85px;
   height: 85px;
   border: 5px solid rgb(166, 35, 81);
@@ -122,6 +145,7 @@ h3 a {
 }
 
 .post-form,
+.auth-form,
 .comment-form {
   padding: 10px;
   width: 45%;
@@ -131,13 +155,43 @@ h3 a {
   border-radius: 10px;
 }
 
-.post-form label {
+.auth-form .auth-links {
+  margin: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.auth-form .auth-links a {
+  text-decoration: underline;
+  color: rgb(166, 35, 81);
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.auth-form .photo-upload {
+  margin: 5px 0;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  align-items: center;
+}
+
+.post-form label,
+.auth-form label {
   font-weight: bold;
   margin-bottom: 3px;
 }
 
 .post-form input[type=text],
+.auth-form input[type=text],
+.auth-form input[type=email],
+.auth-form input[type=password],
 .post-form textarea,
+.auth-form textarea,
 .comment-form textarea {
   width: 95%;
   font-family: 'Crafty Girls', cursive;
@@ -159,8 +213,25 @@ h3 a {
   font-size: 18px;
 }
 
+.auth-form input[type=file] {
+  display: none;
+}
+
+.auth-form input[type=submit] {
+  width: 95%;
+  font-family: 'Crafty Girls', cursive;
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: rgb(166, 35, 81);
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+}
+
 .comment-form input[type=submit],
-.like-button {
+.like-button,
+.auth-form .custom-file-upload {
   text-decoration: none;
   font-family: 'Crafty Girls', cursive;
   font-weight: bold;
