@@ -16,7 +16,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: postgres
-  password: vic
+  password: admin
   host: localhost
   port: 5432
   # For details on connection pooling, see Rails configuration guide
@@ -34,7 +34,7 @@ development:
   username: postgres
 
   # The password associated with the PostgreSQL role (username).
-  password: vic
+  password: admin
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have

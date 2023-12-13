@@ -7,17 +7,10 @@
         </div>
     </div>
     <% @posts.each_with_index do |post, i| %>
-        <div class="post-thumb">
-            <%= link_to post.title, user_post_path(@user, post) %>
-            <p><%= post.text.truncate(100) %></p>
-            <p>Comments: <%= post.comments_counter %></p>
-            <p>Likes: <%= post.likes_counter %></p>
-        </div>
+        <%= render 'post_thumb', post: post %>
         <div class="comment-peek">
             <% post.comments.each do |comment| %>
-                <div class="comment-thumb">
-                    <p><%= comment.user.name %>: <%= comment.text.truncate(100) %></p>
-                </div>
+                <%= render 'comment_thumb', comment: comment %>
             <% end %>
         </div>
     <% end %>

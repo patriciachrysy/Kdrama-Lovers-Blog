@@ -4,10 +4,7 @@ class User < ApplicationRecord
   has_many :comments
 
   validates :name, presence: true
-
-  def posts_counter
-    posts.count
-  end
+  validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
 
   def recent_posts
     posts.order(created_at: :desc).limit(3)
