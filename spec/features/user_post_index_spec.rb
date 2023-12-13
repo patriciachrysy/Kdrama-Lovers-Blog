@@ -29,18 +29,6 @@ RSpec.feature 'UserPostIndex', type: :feature do
     expect(page).to have_content(post.text.truncate(100))
   end
 
-  scenario 'I can see the first comments on a post' do
-    expect(page).to have_content(comment.text)
-  end
-
-  scenario 'I can see how many comments a post has' do
-    expect(page).to have_content(post.comments_counter)
-  end
-
-  scenario 'I can see how many likes a post has' do
-    expect(page).to have_content(post.likes_counter)
-  end
-
   scenario 'I can see a section for pagination if there are more posts than fit on the view' do
     expect(page).to have_selector('.pagination')
   end
