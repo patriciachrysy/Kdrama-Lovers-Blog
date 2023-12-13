@@ -5,7 +5,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="photo-upload">
       <label class="custom-file-upload">
-          <%= f.file_field :photo, accept: 'image/*', onchange: 'previewImage(event)' %>
+          <%= f.file_field :photo, id: "user_photo", accept: 'image/*', onchange: 'previewImage(event)' %>
           Add a photo
       </label>
 
