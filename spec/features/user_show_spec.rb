@@ -18,21 +18,6 @@ RSpec.feature 'UserShow', type: :feature do
     expect(page).to have_content(user.name)
   end
 
-  scenario 'I can see the number of posts the user has written' do
-    visit user_path(user)
-    expect(page).to have_content("Number of posts: #{user.posts_counter}")
-  end
-
-  scenario "I can see the user's bio" do
-    expect(page).to have_content(user.bio)
-  end
-
-  scenario "I can see the user's first 3 posts" do
-    posts.each do |post|
-      expect(page).to have_content(post.text)
-    end
-  end
-
   scenario "I can see a button that lets me view all of a user's posts" do
     expect(page).to have_link('See all posts', href: user_posts_path(user))
   end

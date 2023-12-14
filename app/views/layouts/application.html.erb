@@ -11,6 +11,23 @@
   </head>
 
   <body>
+   <div class="users-container">
+    <% flash.each do |type, message| %>
+      <div class="flash <%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
+    <div class='action-buttons'>
+        <%= link_to "New Post", new_post_path, class: 'like-button' %>
+        <% if user_signed_in? %>
+            <h3>Welcome, <%= current_user.name %></h3>
+            <%= link_to "Settings", edit_user_registration_path, class: 'like-button' %>
+            <%= link_to "Log out", logout_path, class: 'like-button' %>
+        <% else %>
+            <%= link_to "Log in", login_path, class: 'like-button' %>
+        <% end %>
+    </div>
     <%= yield %>
+   </div>
   </body>
 </html>

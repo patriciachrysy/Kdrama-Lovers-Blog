@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
+
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.includes({ comments: :user }, :likes)
+    @posts = @user.posts
   end
 
   def show

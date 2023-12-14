@@ -1,11 +1,9 @@
-<div class="users-container">
-    <%= render 'user_thumb', user: @user %>
-    <div class="bio-box">
-        <h3>Bio</h3>
-        <p><%= @user.bio %></p>
-    </div>
-    <% @user.recent_posts.take(3).each_with_index do |post, i| %>
-        <%= render "posts/post_thumb", post: post %>
-    <% end %>
-    <%= link_to "See all posts", user_posts_path(@user) %>
+<%= render 'user_thumb', user: @user %>
+<div class="bio-box">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
 </div>
+<% @user.recent_posts.each_with_index do |post, i| %>
+    <%= render "posts/post_thumb", post: post %>
+<% end %>
+<%= link_to "See all posts", user_posts_path(@user) %>

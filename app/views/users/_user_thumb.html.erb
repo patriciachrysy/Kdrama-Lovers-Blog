@@ -1,5 +1,5 @@
 <div class="user-box">
-    <%= image_tag user.photo %>
+    <%= image_tag user.photo.url if user.photo.present? %>
     <div class="user-infos">
         <h2><%= link_to "#{user.name} #{user.id}", user %></h2>
         <span>Number of posts: <%= user.posts_counter %></span>
