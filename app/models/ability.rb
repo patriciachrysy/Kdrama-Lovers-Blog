@@ -6,8 +6,10 @@ class Ability
 
     if user.is? :admin
       can :delete, Post
+      can :delete, Comment
     else
       can :delete, Post, author_id: user.id
+      can :delete, Comment, user_id: user.id
     end
   end
 end

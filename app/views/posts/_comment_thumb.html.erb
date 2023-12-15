@@ -1,4 +1,7 @@
 <div class="comment-content">
     <span><%= commenter %>:</span>
     <span><%= comment %></span>
+    <% if can? :delete, comment %>
+        <%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'like-button' %>
+    <% end %>
 </div>
