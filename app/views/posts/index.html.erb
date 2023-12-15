@@ -3,7 +3,7 @@
     <%= render "post_thumb", post: post %>
     <div class="comment-peek">
         <% post.recent_comments.each do |comment| %>
-            <%= render "comment_thumb", {comment: comment.truncated_comment, commenter: comment.user.name} %>
+            <%= render "comment_thumb", {comment_id: comment.id, comment: comment.truncated_comment, commenter: comment.user.name} %>
         <% end %>
     </div>
 <% end %>

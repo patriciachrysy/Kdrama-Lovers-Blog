@@ -5,11 +5,12 @@ class Ability
     user ||= User.new
 
     if user.is? :admin
-      can :delete, Post
-      can :delete, Comment
+      can :destroy, Post
+      can :destroy, Comment
     else
-      can :delete, Post, author_id: user.id
-      can :delete, Comment, user_id: user.id
+      can :destroy, Post, author_id: user.id
+      can :create, Comment
+      can :destroy, Comment, user_id: user.id
     end
   end
 end

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index show] do
     resources :posts, only: %i[index show destroy] do
-      resources :comments, only: %i[create]
+      resources :comments, only: %i[create destroy]
       get 'like' => 'likes#create', as: :likes
     end
   end
