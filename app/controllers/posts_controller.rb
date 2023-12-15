@@ -29,6 +29,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @author = current_user
+    @post = @author.posts.find(params[:id])
+    @post.destroy
+
+    redirect_to user_posts_path(@author), status: :see_other
+  end
+
   private
 
   def post_params

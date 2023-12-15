@@ -6,4 +6,4 @@
 <% @user.recent_posts.each_with_index do |post, i| %>
     <%= render "posts/post_thumb", post: post %>
 <% end %>
-<%= link_to "See all posts", user_posts_path(@user) %>
+<%= link_to "See all posts", user_posts_path(@user), class: 'like-button' %>

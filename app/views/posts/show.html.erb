@@ -7,7 +7,13 @@
         </div>
     </div>
     <p><%= @post.text %></p>
-    <%= link_to "like", user_post_likes_path(@post.author, @post), class: 'like-button' %>
+    <div class="post-action-buttons">
+        <%= link_to "like", user_post_likes_path(@post.author, @post), class: 'like-button' %>
+        <%= link_to "Delete", user_post_path(@post.author, @post), data: {
+                turbo_method: :delete,
+                turbo_confirm: 'Are you sure you want to delete this post?'
+            }, class: 'like-button' if can? :destroy, @post %>
+    </div>
 </div>
 <% if user_signed_in? %>
     <div class="comment-form">
@@ -24,6 +30,6 @@
 <% end %>
 <div class="comment-peek">
     <% @post.comments.each do |comment| %>
-        <%= render "comment_thumb", {comment: comment.text, commenter: comment.user.name} %>
+        <%= render "comment_thumb", {comment: comment, comment_text: comment.text, commenter: comment.user.name} %>
         <% end %>
 </div>

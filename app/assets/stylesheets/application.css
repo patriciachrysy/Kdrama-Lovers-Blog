@@ -258,3 +258,10 @@ h3 a {
   border: 3px solid rgb(166, 35, 81) !important;
   outline: none;
 }
+
+.post-action-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
