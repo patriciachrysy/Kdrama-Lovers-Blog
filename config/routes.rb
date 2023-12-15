@@ -14,6 +14,14 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i[new create]
 
+  namespace :api do
+    namespace :v1 do
+      post 'login' => 'authentication#login'
+      get 'user/:id/posts' => 'posts#index'
+      get 'post/:id/comments' => 'comments#index'
+    end
+  end
+
   root 'users#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
