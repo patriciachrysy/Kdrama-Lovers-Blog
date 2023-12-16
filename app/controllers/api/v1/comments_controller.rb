@@ -37,7 +37,7 @@ class Api::V1::CommentsController < ActionController::API
       head :unauthorized unless @current_user
     end
   end
-  
+
   def comment_params
     params.require(:comment).permit(:content)
   end
