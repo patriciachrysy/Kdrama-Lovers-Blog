@@ -11,5 +11,8 @@ module JsonWebToken
   def jwt_decode(token)
     decode = JWT.decode(token, SECRET_KEY)[0]
     HashWithIndifferentAccess.new decode
+  rescue JWT::DecodeError, JWT::ExpiredSignature => e
+    # Handle invalid or expired token, e.g. return an error response
+    { errors: e.message }
   end
 end

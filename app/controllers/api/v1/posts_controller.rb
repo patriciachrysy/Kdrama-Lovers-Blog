@@ -19,7 +19,11 @@ class Api::V1::PostsController < ActionController::API
     head :unauthorized unless header
     header = header.split.last if header
     decoded = jwt_decode(header)
-    head :unauthorized unless User.find(decoded[:user_id])
-    @current_user = User.find(decoded[:user_id])
+    if decoded[:errors]
+      render json: { error: decoded[:errors] }, status: :unauthorized
+    else
+      @current_user = User.find(decoded[:user_id])
+      head :unauthorized unless @current_user
+    end
   end
 end
