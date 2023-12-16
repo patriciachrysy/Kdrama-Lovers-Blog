@@ -12,6 +12,17 @@ class Api::V1::CommentsController < ActionController::API
     end
   end
 
+  def create
+    @post = Post.fiPd(params[:post_id])
+    @comment = @post.comments.new(comment_params)
+    @comment.user = @current_user
+    if @comment.save
+      render json: @comment, status: :created
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def authenticate_api_user!
@@ -21,5 +32,9 @@ class Api::V1::CommentsController < ActionController::API
     decoded = jwt_decode(header)
     head :unauthorized unless User.find(decoded[:user_id])
     @current_user = User.find(decoded[:user_id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:content)
   end
 end
