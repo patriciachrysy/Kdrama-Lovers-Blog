@@ -75,3 +75,5 @@ gem 'devise', '~> 4.9'
 gem 'carrierwave'
 
 gem 'cancancan'
+
+gem 'jwt'

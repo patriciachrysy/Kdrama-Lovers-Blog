@@ -14,13 +14,17 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i[new create]
 
+  namespace :api do
+    namespace :v1 do
+      post 'login' => 'authentication#login'
+      get 'users/:id/posts' => 'posts#index'
+      get 'posts/:id/comments' => 'comments#index'
+      post 'posts/:id/comments' => 'comments#create'
+      get 'users/:user_id/posts/:post_id/comments' => 'comments#index'
+      post 'users/:user_id/posts/:post_id/comments' => 'comments#create'
+    end
+  end
+
   root 'users#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
   get 'up' => 'rails/health#show', as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
