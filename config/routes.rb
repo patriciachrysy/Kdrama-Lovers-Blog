@@ -17,9 +17,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post 'login' => 'authentication#login'
-      get 'user/:id/posts' => 'posts#index'
-      get 'posts/:id/comments' => 'comments#index'  # Change this line
-      post 'posts/:id/comments' => 'comments#create'  # Add this line
+      get 'users/:id/posts' => 'posts#index'
+      get 'posts/:id/comments' => 'comments#index'
+      post 'posts/:id/comments' => 'comments#create'
+      get 'users/:user_id/posts/:post_id/comments' => 'comments#index'
+      post 'users/:user_id/posts/:post_id/comments' => 'comments#create'
     end
   end
 
